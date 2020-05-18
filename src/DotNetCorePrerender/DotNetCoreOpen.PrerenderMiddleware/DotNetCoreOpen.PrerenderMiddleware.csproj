@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>ASP.NET Core Middleware for Prerender.io.  github:https: //github.com/dingyuliang/prerender-dotnet. related blogs: http: //netopensource.com/tag/prerender/ </Description>
+    <Copyright>Copyright 2017</Copyright>
+    <AssemblyTitle>DotNetCoreOpen.PrerenderMiddleware</AssemblyTitle>
+    <NeutralLanguage>.NET Core</NeutralLanguage>
+    <VersionPrefix>1.0.2</VersionPrefix>
+    <Authors>dingyuliang</Authors>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <AssemblyName>DotNetCoreOpen.PrerenderMiddleware</AssemblyName>
+    <PackageId>DotNetCoreOpen.PrerenderMiddleware</PackageId>
+    <PackageTags>Prerender;Prerender.io;ASP.NET Core Middleware;ASP.NET Core;DotNetCore</PackageTags>
+    <PackageReleaseNotes>github: https://github.com/dingyuliang/prerender-dotnet, First release of ASP.NET Core Middleware for Prerender.io.</PackageReleaseNotes>
+    <PackageIconUrl>https://www.nuget.org/favicon.ico</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/dingyuliang/prerender-dotnet</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/dingyuliang/prerender-dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
+    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="1.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="1.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="1.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="1.0.2" />
+    <PackageReference Include="System.Net.Requests" Version="4.0.11" />
+  </ItemGroup>
+
+  <Target Name="PostcompileScript" AfterTargets="Build">
+    <Exec Command="xcopy bin\$(Configuration)\netstandard1.6\*.dll bin\$(Configuration)\ /R /Y" />
+    <Exec Command="dotnet pack --no-build --configuration $(Configuration)" />
+  </Target>
+
+</Project>

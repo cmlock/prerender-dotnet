@@ -3,3 +3,7 @@
 ################################################################################
 
 /src/DotNetPrerender/DotNetOpen.PrerenderModule/obj/Debug
+/src/DotNetPrerender/DotNetOpen.PrerenderModule/obj/Debug
+bin/
+obj/
+.vs/
